@@ -9,7 +9,7 @@ def solution(s):
             if del_str == "":
                 res.append(i)
             else:
-                res.appen(i)
+                res.append(i)
                 del_str = ""
         else:
             if i == del_str:
