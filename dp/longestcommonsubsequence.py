@@ -35,4 +35,31 @@ for i in dp:
 # [0, 0, 1, 1, 2, 2, 3, 4, 4, 5]
 
 # 怎么找到子序列呢？
-#
+# 使得 i = len(b) j = len(b)
+# 当 a[j] == b[i] 时，最大数会加1
+# 当 a[j] ！= b[i] 时，dp[i][j] 会从dp[i-1][j] dp[i][j-1]
+# 取最大值(这里会有个问题，dp[i-1][j]=dp[i][j-1]，优先选上还是右，会出现两种结果)
+
+# 下面有限选右
+
+i = len(b)
+j = len(a)
+
+string = ""
+
+while (i > 0) and (j > 0):
+    if a[j-1] == b[i-1]:
+        string = string + a[j-1]
+        i -= 1
+        j -= 1
+    else:
+        if dp[i-1][j] < dp[i][j-1]:
+            j -= 1
+        elif dp[i-1][j] > dp[i][j-1]:
+            i -= 1
+        else:
+            j -= 1
+
+print(string[::-1])
+
+
