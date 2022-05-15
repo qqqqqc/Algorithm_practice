@@ -3,7 +3,7 @@
 
 
 
-def soultion(n):
+def solution(n):
     tmp = 1
     res = 0
     for i in range(1,n+1):

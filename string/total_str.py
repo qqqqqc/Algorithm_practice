@@ -19,7 +19,7 @@
 # 12
 
 
-def soultion():
+def solution():
     input_str = input().strip("\n")
     other = 0
     num = 0
