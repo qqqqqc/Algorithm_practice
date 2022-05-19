@@ -41,6 +41,10 @@ class BinaryTree():
                     queue.append(cur.right)
 
     def level_travel(self):
+        """
+        广度遍历，也叫层级遍历
+        :return:
+        """
         if self.root is None:
             return
         else:
@@ -59,6 +63,11 @@ class BinaryTree():
             return res
 
     def preorder_travel(self,node):
+        """
+        前序遍历
+        :param node:
+        :return:
+        """
         if node is None:
             return
         else:
@@ -74,6 +83,11 @@ class BinaryTree():
             return res
 
     def inorder_travel(self,node):
+        """
+        中序遍历
+        :param node:
+        :return:
+        """
         if node is None:
             return node
         else:
@@ -93,6 +107,11 @@ class BinaryTree():
             return res
 
     def postorder_travel(self,node):
+        """
+        后序遍历
+        :param node:
+        :return:
+        """
         if node is None:
             return node
         else:
