@@ -25,3 +25,5 @@ def permutation(s):
 
     backtracking(s, path, uesd)
     return res
+result = permutation("abc")
+print(result)
