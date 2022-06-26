@@ -1,16 +1,27 @@
 # 字符串全排列
+# 回溯算法
+# https://leetcode.cn/problems/permutations/solution/by-huan-huan-20-hblf/
 #递归思想
+
 def permutation(s):
-    if len(s) == 1:
-        return [s]
-    else:
-        res = []
+    path = []
+    res = []
+    uesd = [False for _ in range(len(s))]
+
+    def backtracking(s,path,uesd):
+        if len(path) == len(s):
+            res.append("".join(path[:]))
+            return
+
         for i in range(len(s)):
-            for j in permutation(s[:i]+s[i+1:]):
-                tmp = s[i] + j
-                # print(tmp)
-                if tmp not in res:
-                    res.append(tmp)
-        return res
-result = permutation("abc")
-print(result)
+            if uesd[i]:
+                continue
+
+            path.append(s[i])
+            uesd[i] = True
+            backtracking(s,path,uesd)
+            path.pop()
+            uesd[i] = False
+
+    backtracking(s, path, uesd)
+    return res
