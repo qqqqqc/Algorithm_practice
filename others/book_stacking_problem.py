@@ -19,22 +19,36 @@
 
 # 为了方便已经把输入内容变成变量保存
 
-m = 3
-l=[[16,15],[13,12],[15 ,14]]
+books = [[10, 7], [1, 7], [10, 8], [13, 9], [1, 2], [20, 20], [14, 17], [20, 16],
+          [20, 13], [15, 18], [11, 9], [11, 8], [19, 16]]
 
-length = []
-high = []
+n = len(books)
+tmp = sorted(books,key=lambda x:x[0])
+dp = [1] * n
+for i in range(1,len(tmp)):
+    for j in range(i):
+        if tmp[i][1] > tmp[j][1]:
+            dp[i] = max(dp[i],dp[j]+1)
+print(max(dp))
 
-tmp = sorted(l,key=lambda x:x[0])
 
-for t in tmp:
-    length.append(t[0])
-    high.append(t[1])
-res = [[0,0]]
-for i in range(len(tmp)):
-    if length[i] > res[-1][0]:
-        a = high[i:]
-        if high[i] == min(a) and high[i] > res[-1][1]:
-            res.append([length[i],high[i]])
-print(res)
-print(len(res)-1)
+
+# m = 3
+# l=[[16,15],[13,12],[15 ,14]]
+#
+# length = []
+# high = []
+#
+# tmp = sorted(l,key=lambda x:x[0])
+#
+# for t in tmp:
+#     length.append(t[0])
+#     high.append(t[1])
+# res = [[0,0]]
+# for i in range(len(tmp)):
+#     if length[i] > res[-1][0]:
+#         a = high[i:]
+#         if high[i] == min(a) and high[i] > res[-1][1]:
+#             res.append([length[i],high[i]])
+# print(res)
+# print(len(res)-1)
